@@ -1,0 +1,58 @@
+<div class='clickable'>
+ <span class='display'></span>
+    <div id="cube"></div>
+</div>
+
+<style>
+.clickable {
+    border: 1px solid #333;
+    background: #eee;
+    height: 200px; width: 200px;
+    margin: 15px;
+    position: absolute;
+}
+.display {
+    display: block;
+    height: 16px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    top: 50%; margin-top: -8px;
+}
+#cube {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation: mymove 5s infinite;
+    animation-delay: 2s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+</style>
+<script>
+$('.clickable').bind('click', function (ev) {
+    var $div = $(ev.target);
+    var $display = $div.find('.display');
+
+    var offset = $div.offset();
+    var x = ev.clientX - offset.left;
+    var y = ev.clientY - offset.top;
+
+    $display.text('x: ' + x + ', y: ' + y);
+
+
+         t$("#cube").setStyle('keyframes','from('+ x  + 'px) to(' + y + 'px)');
+});</script>
