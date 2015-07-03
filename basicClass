@@ -1,0 +1,19 @@
+function Zoo() {}
+
+Zoo.prototype.pokeAnimal = function () {
+  console.log(" ...");
+}
+
+function Animal(){}
+function AnimalType() {}
+
+AnimalType.prototype = new Animal();
+
+
+
+
+var Lion = new AnimalType();
+var Goat = new AnimalType();
+Goat.pokeAnimal = function() {
+  console.log("Baaa");
+}
